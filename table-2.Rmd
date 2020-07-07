@@ -1,0 +1,84 @@
+---
+title: "Descriptive Statistics for Coaching Study"
+author: "Amy Burkhardt"
+date: "2/15/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("code/8_produce-summary-tables.R")
+library(kableExtra)
+
+```
+
+# Overview 
+
+
+## Binary Covariates (Students with no Missing Data, Entire Analytic Sample)
+
+```{r binaryaaa, echo = FALSE}
+
+kable(all.pop.combined.no.missing_all_demos) %>%
+  kable_styling("striped") %>%
+  add_header_above(c(" " = 2, 
+                     "Combined Terms" = 2,
+                     "Invited and Coached (combined terms)" = 2
+                     )) %>%
+  footnote(general = "If a p-value is less than 0.05, it is flagged with one star (\\*). If a p-value is less than 0.01, it is flagged with two stars (\\**). If a p-value is less than 0.001, it is flagged with three stars (\\***)")
+
+
+```
+
+
+## Continuous Covariates (Students with No Missing Data, Entire Analytic Sample) 
+
+```{r binssary, echo = FALSE}
+
+kable(all.pop.combined.no.missing_all_cont) %>%
+  kable_styling("striped") %>%
+  add_header_above(c(" " = 2, 
+                     "Combined Terms" = 2,
+                     "Invited and Coached (combined terms)" = 2
+                     )) %>%
+  footnote(general = "If a p-value is less than 0.05, it is flagged with one star (\\*). If a p-value is less than 0.01, it is flagged with two stars (\\**). If a p-value is less than 0.001, it is flagged with three stars (\\***)")
+
+
+```
+
+
+
+## Dichotmous Variables (Freshman with No Missing Data)
+
+Includes freshman who had an entry term of 20177 and were invited to be coached in 20181 OR had an entry term of 2087 and were invited to be coached in 20191. 
+
+
+```{r binaryss, echo = FALSE}
+
+kable(fresh.pop.combined.no.missing_all_demos) %>%
+  kable_styling("striped") %>%
+  add_header_above(c(" " = 2, 
+                     "Combined Terms" = 2,
+                     "Invited and Coached (combined terms)" = 2
+                     )) %>%
+  footnote(general = "If a p-value is less than 0.05, it is flagged with one star (*). If a p-value is less than 0.01, it is flagged with two stars (**). If a p-value is less than 0.001, it is flagged with three stars (***)")
+
+
+```
+
+## Continuous Variables (Freshman with No Missing Data)
+
+```{r binary, echo = FALSE}
+
+kable(fresh.pop.combined.no.missing_all_cont) %>%
+  kable_styling("striped") %>%
+  add_header_above(c(" " = 2, 
+                     "Combined Terms" = 2,
+                     "Invited and Coached (combined terms)" = 2
+                     )) %>%
+  footnote(general = "If a p-value is less than 0.05, it is flagged with one star (\\*). If a p-value is less than 0.01, it is flagged with two stars (\\**). If a p-value is less than 0.001, it is flagged with three stars (\\***)")
+
+
+```
+
+

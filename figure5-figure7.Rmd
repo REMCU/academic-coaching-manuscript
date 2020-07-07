@@ -1,0 +1,173 @@
+---
+title: "exploring-dosage"
+author: "Amy Burkhardt"
+date: "5/4/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+
+```
+
+
+```{r coacheds, echo=FALSE, message=FALSE, warning=FALSE}
+
+all.pop.combined.no.missing <- readRDS("data/entire.population.no.missing.rds")
+fresh.pop.combined.no.missing <- readRDS("data/freshmen.population.no.missing.RDS")
+
+coached <- subset(all.pop.combined.no.missing, all.pop.combined.no.missing$invited_and_coached==1)
+
+
+``` 
+
+In this file, I explore the extent to which there is a linear relationship between the number of coaching sessions and the three outcome variables. There tends to be a linear relationship, but there is some evidence that, on average, there is actually a negative relationship between coaching and invited term gpa, as well as coaching and next semester credits for students who have more than 6 coaching sesssions. 
+
+## Coaching Sessions and Invited Term GPA 
+
+First, let's take a look at the relationship between the number of coaching sessions a student receives and the outcome variable, "Invited Term GPA"). 
+
+The correlation between these two variables is .21. 
+
+```{r coached2, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+p2 <- ggplot(coached, aes(x = factor(coaching.sessions), y = invited.term.gpa)) + geom_jitter(alpha = .2, width = .2)
+
+p3 <- ggplot(coached, aes(x = factor(coaching.sessions), y = invited.term.gpa)) +geom_boxplot()
+
+p2 <- p2 + 
+ylab("Invited Term GPA") +
+xlab("Number of Coaching Sessions")
+
+p3 <- p3 + 
+ylab("Invited Term GPA") +
+xlab("Number of Coaching Sessions")
+
+gridExtra::grid.arrange(p2, p3, nrow = 1)
+
+
+```
+
+
+### Exploring the linearity of the relationships
+
+The red dotted line is the linear model line. The blue dotted line is the General Additive Model, which allows us to assess how non-linear the relationship may be. Here, it seems that the relationship is linearly until about 7 sessions at which point there is some deviation from the linearity. 
+
+```{r pressurse, echo=FALSE}
+
+myguide <- guide_legend(keywidth = unit(1, "cm"))
+p1 <- ggplot(coached, aes(x = coaching.sessions, y = invited.term.gpa)) +
+  geom_point(alpha = .3) +
+  geom_smooth(method = "lm", se = FALSE, aes(linetype="linear", colour="linear")) +
+  geom_smooth(se = FALSE,  aes(linetype="loess", colour="loess"))+
+  
+  ylab("Invited Term GPA") +
+  xlab("Number of Coaching Sessions")+
+ scale_colour_manual(name="legend", 
+                      values=c("loess"="red","linear"="blue"),guide = myguide) +
+  scale_linetype_manual(name="legend",
+                        values=c("loess"="dashed","linear"="solid"),guide = myguide)+
+  theme_bw()
+
+p1
+```
+
+
+## Coaching Sessions and Next Semester Credits
+
+First, let's take a look at the relationship between the number of coaching sessions a student receives and the outcome variable, "Next Semester Credits"). 
+
+The correlation between these two variables is .13. 
+
+```{r coachssed2, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+p2 <- ggplot(coached, aes(x = factor(coaching.sessions), y = next.semester.credits)) + geom_jitter(alpha = .2, width = .2)
+
+p3 <- ggplot(coached, aes(x = factor(coaching.sessions), y = next.semester.credits)) +geom_boxplot()
+
+
+p2 <- p2 + 
+ylab("Next Semester Credits") +
+xlab("Number of Coaching Sessions")
+
+p3 <- p3 + 
+ylab("Next Semester Credits") +
+xlab("Number of Coaching Sessions")
+gridExtra::grid.arrange(p2, p3, nrow = 1)
+
+
+```
+
+
+### Exploring the linearity of the relationship
+
+The red dotted line is the linear model line. The blue dotted line is the General Additive Model, which allows us to assess how non-linear the relationship may be. Once again, it seems that the relationship is linear until about 6 sessions at which point there is some deviation from the linearity. 
+
+```{r presssujre, echo=FALSE}
+
+
+myguide <- guide_legend(keywidth = unit(1, "cm"))
+p1 <- ggplot(coached, aes(x = coaching.sessions, y = next.semester.credits)) +
+  geom_point(alpha = .3) +
+  geom_smooth(method = "lm", se = FALSE, aes(linetype="linear", colour="linear")) +
+  geom_smooth(se = FALSE,  aes(linetype="loess", colour="loess"))+
+  ylab("Next Semester Credits") +
+  xlab("Number of Coaching Sessions") +
+  scale_colour_manual(name="legend", 
+                      values=c("loess"="red","linear"="blue"),guide = myguide) +
+  scale_linetype_manual(name="legend",
+                        values=c("loess"="dashed","linear"="solid"),guide = myguide)+
+  theme_bw()
+
+p1
+
+
+```
+
+
+## Coaching Sessions and Enrolled Next Semester
+
+First, let's take a look at the relationship between the number of coaching sessions a student receives and the outcome variable, "Enrolled Next Semester"). 
+
+The correlation between these two variables is .15. 
+
+```{r coasched2, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+p2 <- ggplot(coached, aes(x = factor(coaching.sessions), y = enrolled.next.semester)) + geom_jitter(alpha = .2, width = .2)
+
+
+p2 <- p2 + 
+ylab("Enrolled Next Semester") +
+xlab("Number of Coaching Sessions")
+
+
+p2
+
+```
+
+
+### Exploring the linearity of the relationship
+
+The red dotted line is the linear probability model. The blue dotted line is the General Additive Model, which allows us to assess how non-linear the relationship may be. Here, it seems that the benefits of coaching flatten out around 6 sessions, but we don't see a negative relationship. 
+```{r presssure, echo=FALSE}
+
+myguide <- guide_legend(keywidth = unit(1, "cm"))
+p1 <- ggplot(coached, aes(x = coaching.sessions, y = enrolled.next.semester)) +   geom_point(alpha = .3) +
+  geom_smooth(method = "lm", se = FALSE, aes(linetype="linear", colour="linear")) +
+  geom_smooth(se = FALSE,  aes(linetype="loess", colour="loess"))+
+  ylab("Next Semester Credits") +
+  xlab("Number of Coaching Sessions")+
+ scale_colour_manual(name="legend", 
+                      values=c("loess"="red","linear"="blue"),guide = myguide) +
+  scale_linetype_manual(name="legend",
+                        values=c("loess"="dashed","linear"="solid"),guide = myguide)+
+  theme_bw()
+
+p1
+
+```
+

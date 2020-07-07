@@ -1,0 +1,89 @@
+---
+title: "Tables for Paper"
+author: "Amy Burkhardt"
+date: "4/13/2020"
+output:
+  html_document:
+    css: table-style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(MatchIt)
+library(cem)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(kableExtra)
+source("code/9_matching_analysis.R")
+
+```
+
+
+```{r kj;, echo=FALSE, message=FALSE, warning=FALSE}
+
+all <- rbind.data.frame(results.invited.coached, results.high.coached, results.low.coached, results.fresh.coached)
+
+# clean up data frame
+colnames(all) <- cbind("Outcome Variable", 
+                       "Raw Difference (no matching)",
+                       "Nearest Neighbor Matching",
+                       "Optimal Matching",
+                       "Coarsened Exact Matching")
+
+
+ all$`Outcome Variable` <- recode(all$`Outcome Variable` ,
+                 Year2_Retention = "Enrolled Next Semester",         
+                 enrolled.next.semester = "Enrolled Next Semester",
+                 invited.term.gpa = "Invited Term GPA",
+                 next.semester.credits = "Completed Credits Next Semester", 
+                 second_sem_total_credits = "Total Second Semester Credits",
+                 first_year_total_credits = "Total First Year Credits",
+                 n = "N"
+                 )
+
+ 
+
+kable(all, caption = "Mean Difference (SE) Invited Vs. Participants", row.names = FALSE) %>%
+  kable_styling("striped", full_width = F) %>%
+  pack_rows("All Students", 1, 4) %>%
+  pack_rows("High Prior GPA", 5, 8) %>%
+  pack_rows("Low Prior GPA", 9, 12) %>%
+  pack_rows("Freshman Only", 13,18) %>%
+  footnote(general = "If a p-value is less than 0.05, it is flagged with one star (\\*). If a p-value is less than 0.001, it is flagged with two stars (\\**). If a p-value is less than 0.0001, it is flagged with three stars (\\***)")
+```
+
+
+```{r k3j, echo=FALSE, message=FALSE, warning=FALSE}
+all <- rbind.data.frame(results.invited.completed, results.high.completed, results.low.completed, results.fresh.completed)
+
+# clean up data frame
+colnames(all) <- cbind("Outcome Variable", 
+                       "Raw Difference (no matching)",
+                       "Nearest Neighbor Matching",
+                       "Optimal Matching",
+                       "Coarsened Exact Matching")
+
+
+ all$`Outcome Variable` <- recode(all$`Outcome Variable` ,
+                 Year2_Retention = "Enrolled Next Semester",         
+                 enrolled.next.semester = "Enrolled Next Semester",
+                 invited.term.gpa = "Invited Term GPA",
+                 next.semester.credits = "Completed Credits Next Semester", 
+                 second_sem_total_credits = "Total Second Semester Credits",
+                 first_year_total_credits = "Total First Year Credits",
+                 n = "N"
+                 )
+
+
+kable(all, caption = "Mean Difference (SE) Invited Vs. Completed", row.names = FALSE) %>%
+  kable_styling("striped", full_width = F) %>%
+  pack_rows("All Students", 1, 4) %>%
+  pack_rows("High Prior GPA", 5, 8) %>%
+  pack_rows("Low Prior GPA", 9, 12) %>%
+  pack_rows("Freshman Only", 13,18) %>%
+  footnote(general = "If a p-value is less than 0.05, it is flagged with one star (\\*). If a p-value is less than 0.001, it is flagged with two stars (\\**). If a p-value is less than 0.0001, it is flagged with three stars (\\***)")
+```
+
+
+

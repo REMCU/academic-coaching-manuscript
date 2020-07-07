@@ -1,0 +1,40 @@
+---
+title: "Tables for Paper: Matched vs. No-Matched Samples from CEM Analysis "
+author: "Amy Burkhardt"
+date: "4/27/2020"
+output:
+  html_document:
+    css: table-style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(MatchIt)
+library(cem)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(kableExtra)
+source("code/cem-analysis.R")
+
+```
+
+
+```{r kj;, echo=FALSE, message=FALSE, warning=FALSE}
+
+all <- matched.covars
+# clean up data frame
+
+kable(all, caption = "Sample Differences betwen CEM Matched Students and Non-matched Students", row.names = FALSE) %>%
+  kable_styling(full_width = F) %>%
+  pack_rows("%", 1, 7) %>%
+  pack_rows("Mean(SD)", 8, 10) %>%
+  footnote(general = "Note: \\* p < 0.05, \\** p < 0.01, \\*** p < 0.0001")
+```
+
+
+
+```
+
+
+

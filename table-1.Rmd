@@ -1,0 +1,56 @@
+---
+title: "Table 1" 
+output:
+  html_document:
+    css: table-style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(MatchIt)
+library(cem)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(kableExtra)
+source("code/outcome-descriptives-all-samples.R")
+
+```
+
+
+```{r table1,  echo=FALSE, message=FALSE, warning=FALSE}
+
+a <- matrix(nrow=9, ncol=5)
+
+a[1,] <- as.character(unlist(invited.binary[1,], use.names = FALSE))
+a[2,] <- as.character(unlist(invited.continuous[1,], use.names = FALSE))
+a[3,] <- as.character(unlist(invited.continuous[2,], use.names = FALSE))
+a[4,2:5] <- colnames(freshman.binary[2:5])
+a[5,] <- as.character(unlist(freshman.binary[1,], use.names = FALSE))
+a[6,] <- as.character(unlist(freshman.continuous[3,], use.names = FALSE))
+a[7,] <- as.character(unlist(freshman.continuous[4,], use.names = FALSE))
+a[8,] <- as.character(unlist(freshman.continuous[2,], use.names = FALSE))
+a[9,] <- as.character(unlist(freshman.continuous[1,], use.names = FALSE))
+
+a <- as.data.frame(a)
+colnames(a) <- colnames(invited.binary)
+
+
+kable(a, caption = "Outcome variables by treatment and analytic sample", row.names = FALSE) %>% add_header_above(c(" " = 1, 
+                     "Invited" = 2,
+                     "Invited and Participated" = 2
+                     )) %>%
+  kable_styling(full_width = F) %>%
+  
+  pack_rows("All Students", 1, 3) %>%
+  pack_rows("Freshmen", 4, 9) %>%
+  footnote(general = "Note: \\* p < 0.05, \\** p < 0.01, \\*** p < 0.0001")
+ 
+```
+
+
+
+```
+
+
+
