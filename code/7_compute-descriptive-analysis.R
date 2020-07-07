@@ -90,10 +90,10 @@ for (cohort in cohorts)
     
   }
   colnames(all) <- c("variable",
-                     paste0("invited but never coached \n n = (", length(subset(temp$EncryptedID, temp$invited_not_coached_EVER==1)), ")"),
-                     paste0("invited and coached \n n = (", length(subset(temp$EncryptedID, temp$invited_and_coached==1)), ")"), 
-                     paste0("not completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
-                     paste0("completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed==1)), ")"))
+                     paste0("invited but never coached \n n = (", length(subset(temp$st.id, temp$invited_not_coached_EVER==1)), ")"),
+                     paste0("invited and coached \n n = (", length(subset(temp$st.id, temp$invited_and_coached==1)), ")"), 
+                     paste0("not completed \n n = (", length(subset(temp$st.id, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
+                     paste0("completed \n n = (", length(subset(temp$st.id, temp$inv.completed==1)), ")"))
   
   assign(paste0(cohort,"_all_demos"), all)
   
@@ -144,10 +144,10 @@ for (cohort in cohorts)
     
   }
   colnames(all) <- c("variable",
-                     paste0("invited but never coached \n n = (", length(subset(temp$EncryptedID, temp$invited_not_coached_EVER==1)), ")"),
-                     paste0("invited and coached \n n = (", length(subset(temp$EncryptedID, temp$invited_and_coached==1)), ")"), 
-                     paste0("not completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
-                     paste0("completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed==1)), ")"))
+                     paste0("invited but never coached \n n = (", length(subset(temp$st.id, temp$invited_not_coached_EVER==1)), ")"),
+                     paste0("invited and coached \n n = (", length(subset(temp$st.id, temp$invited_and_coached==1)), ")"), 
+                     paste0("not completed \n n = (", length(subset(temp$st.id, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
+                     paste0("completed \n n = (", length(subset(temp$st.id, temp$inv.completed==1)), ")"))
   
   assign(paste0(cohort,"_all_cont"), all)
   
@@ -181,10 +181,10 @@ for (cohort in cohorts)
     
   }  
   colnames(all) <- c("variable", 
-                     paste0("invited but never coached \n n = (", length(subset(temp$EncryptedID, temp$invited_not_coached_EVER==1)), ")"),
-                     paste0("invited and coached \n n = (", length(subset(temp$EncryptedID, temp$invited_and_coached==1)), ")"), 
-                     paste0("not completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
-                     paste0("completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed==1 & temp$invited_and_coached==1)), ")"))
+                     paste0("invited but never coached \n n = (", length(subset(temp$st.id, temp$invited_not_coached_EVER==1)), ")"),
+                     paste0("invited and coached \n n = (", length(subset(temp$st.id, temp$invited_and_coached==1)), ")"), 
+                     paste0("not completed \n n = (", length(subset(temp$st.id, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
+                     paste0("completed \n n = (", length(subset(temp$st.id, temp$inv.completed==1 & temp$invited_and_coached==1)), ")"))
   
   assign(paste0(cohort,"_count_missing"), all)
 }
@@ -214,10 +214,10 @@ for (cohort in cohorts)
   }  
   
   colnames(all) <- c("variable",  
-                     paste0("invited but never coached \n n = (", length(subset(temp$EncryptedID, temp$invited_not_coached_EVER==1)), ")"),
-                     paste0("invited and coached \n n = (", length(subset(temp$EncryptedID, temp$invited_and_coached==1)), ")"), 
-                     paste0("not completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
-                     paste0("completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed==1 & temp$invited_and_coached==1)), ")"))
+                     paste0("invited but never coached \n n = (", length(subset(temp$st.id, temp$invited_not_coached_EVER==1)), ")"),
+                     paste0("invited and coached \n n = (", length(subset(temp$st.id, temp$invited_and_coached==1)), ")"), 
+                     paste0("not completed \n n = (", length(subset(temp$st.id, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
+                     paste0("completed \n n = (", length(subset(temp$st.id, temp$inv.completed==1 & temp$invited_and_coached==1)), ")"))
   
   assign(paste0(cohort,"_count_cont_missing"), all)
 }
@@ -280,10 +280,10 @@ for (cohort in cohorts)
     
   }
   colnames(all) <- c("variable",
-                     paste0("invited but never coached \n n = (", length(subset(temp$EncryptedID, temp$invited_not_coached_EVER==1)), ")"),
-                     paste0("invited and coached \n n = (", length(subset(temp$EncryptedID, temp$invited_and_coached==1)), ")"), 
-                     paste0("not completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
-                     paste0("completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed==1)), ")"))
+                     paste0("invited but never coached \n n = (", length(subset(temp$st.id, temp$invited_not_coached_EVER==1)), ")"),
+                     paste0("invited and coached \n n = (", length(subset(temp$st.id, temp$invited_and_coached==1)), ")"), 
+                     paste0("not completed \n n = (", length(subset(temp$st.id, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
+                     paste0("completed \n n = (", length(subset(temp$st.id, temp$inv.completed==1)), ")"))
   
   assign(paste0(cohort,"_all_demos"), all)
   
@@ -334,10 +334,10 @@ for (cohort in cohorts)
     
   }
   colnames(all) <- c("variable",
-                     paste0("invited but never coached \n n = (", length(subset(temp$EncryptedID, temp$invited_not_coached_EVER==1)), ")"),
-                     paste0("invited and coached \n n = (", length(subset(temp$EncryptedID, temp$invited_and_coached==1)), ")"), 
-                     paste0("not completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
-                     paste0("completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed==1)), ")"))
+                     paste0("invited but never coached \n n = (", length(subset(temp$st.id, temp$invited_not_coached_EVER==1)), ")"),
+                     paste0("invited and coached \n n = (", length(subset(temp$st.id, temp$invited_and_coached==1)), ")"), 
+                     paste0("not completed \n n = (", length(subset(temp$st.id, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
+                     paste0("completed \n n = (", length(subset(temp$st.id, temp$inv.completed==1)), ")"))
   
   assign(paste0(cohort,"_all_cont"), all)
   
@@ -368,10 +368,10 @@ for (cohort in cohorts)
     
   }  
   colnames(all) <- c("variable", 
-                     paste0("invited but never coached \n n = (", length(subset(temp$EncryptedID, temp$invited_not_coached_EVER==1)), ")"),
-                     paste0("invited and coached \n n = (", length(subset(temp$EncryptedID, temp$invited_and_coached==1)), ")"), 
-                     paste0("not completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
-                     paste0("completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed==1 & temp$invited_and_coached==1)), ")"))
+                     paste0("invited but never coached \n n = (", length(subset(temp$st.id, temp$invited_not_coached_EVER==1)), ")"),
+                     paste0("invited and coached \n n = (", length(subset(temp$st.id, temp$invited_and_coached==1)), ")"), 
+                     paste0("not completed \n n = (", length(subset(temp$st.id, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
+                     paste0("completed \n n = (", length(subset(temp$st.id, temp$inv.completed==1 & temp$invited_and_coached==1)), ")"))
   
   assign(paste0(cohort,"_count_missing"), all)
 }
@@ -398,10 +398,10 @@ for (cohort in cohorts)
   }  
   
   colnames(all) <- c("variable",  
-                     paste0("invited but never coached \n n = (", length(subset(temp$EncryptedID, temp$invited_not_coached_EVER==1)), ")"),
-                     paste0("invited and coached \n n = (", length(subset(temp$EncryptedID, temp$invited_and_coached==1)), ")"), 
-                     paste0("not completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
-                     paste0("completed \n n = (", length(subset(temp$EncryptedID, temp$inv.completed==1 & temp$invited_and_coached==1)), ")"))
+                     paste0("invited but never coached \n n = (", length(subset(temp$st.id, temp$invited_not_coached_EVER==1)), ")"),
+                     paste0("invited and coached \n n = (", length(subset(temp$st.id, temp$invited_and_coached==1)), ")"), 
+                     paste0("not completed \n n = (", length(subset(temp$st.id, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
+                     paste0("completed \n n = (", length(subset(temp$st.id, temp$inv.completed==1 & temp$invited_and_coached==1)), ")"))
   
   assign(paste0(cohort,"_count_cont_missing"), all)
 }

@@ -24,7 +24,7 @@ cov <- c("spring",
 invited <- subset(all.pop.combined.no.missing, all.pop.combined.no.missing$invited==1) 
 
 nomiss <- invited %>%  # MatchIt does not allow missing values
-  select(invited.term.gpa, next.semester.credits, invited_and_coached, EncryptedID, all_of(cov)) %>%
+  select(invited.term.gpa, next.semester.credits, invited_and_coached, st.id, all_of(cov)) %>%
   na.omit()
 
 cem_match <- matchit(invited_and_coached ~ 
@@ -60,7 +60,7 @@ a <- cem_dta %>%
   summarise_all(funs(round(mean(., na.rm = T),2)))
 
 
-nomatch_invited <- invited[ !invited$EncryptedID %in% unique(cem_dta$EncryptedID) , ]
+nomatch_invited <- invited[ !invited$st.id %in% unique(cem_dta$st.id) , ]
 
 # list of continuous and binary variables that will be iterated over 
 

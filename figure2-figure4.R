@@ -3,6 +3,7 @@ library(stringr)
 library(gridExtra)
 library(ggpubr)
 
+source("code/9_matching_analysis.R")
 
 all.pop.combined.no.missing <- readRDS("data/entire.population.no.missing.rds")
 fresh.pop.combined.no.missing <- readRDS("data/freshmen.population.no.missing.RDS")

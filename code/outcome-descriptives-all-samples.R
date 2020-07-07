@@ -61,10 +61,10 @@ for (cohort in cohorts)
     
   }
   colnames(all) <- c("variable",
-                     paste0("Non-participants \n n = (", length(subset(temp$EncryptedID, temp$invited_not_coached_EVER==1)), ")"),
-                     paste0("Participants \n n = (", length(subset(temp$EncryptedID, temp$invited_and_coached==1)), ")"), 
-                     paste0("Non-completers \n n = (", length(subset(temp$EncryptedID, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
-                     paste0("Completers \n n = (", length(subset(temp$EncryptedID, temp$inv.completed==1)), ")"))
+                     paste0("Non-participants \n n = (", length(subset(temp$st.id, temp$invited_not_coached_EVER==1)), ")"),
+                     paste0("Participants \n n = (", length(subset(temp$st.id, temp$invited_and_coached==1)), ")"), 
+                     paste0("Non-completers \n n = (", length(subset(temp$st.id, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
+                     paste0("Completers \n n = (", length(subset(temp$st.id, temp$inv.completed==1)), ")"))
   
   assign("invited.binary", all)
   
@@ -105,10 +105,10 @@ for (cohort in cohorts)
     
   }
   colnames(all) <- c("variable",
-                     paste0("Non-participants \n n = (", length(subset(temp$EncryptedID, temp$invited_not_coached_EVER==1)), ")"),
-                     paste0("Participants \n n = (", length(subset(temp$EncryptedID, temp$invited_and_coached==1)), ")"), 
-                     paste0("Non-completers \n n = (", length(subset(temp$EncryptedID, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
-                     paste0("Completeers\n n = (", length(subset(temp$EncryptedID, temp$inv.completed==1)), ")"))
+                     paste0("Non-participants \n n = (", length(subset(temp$st.id, temp$invited_not_coached_EVER==1)), ")"),
+                     paste0("Participants \n n = (", length(subset(temp$st.id, temp$invited_and_coached==1)), ")"), 
+                     paste0("Non-completers \n n = (", length(subset(temp$st.id, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
+                     paste0("Completeers\n n = (", length(subset(temp$st.id, temp$inv.completed==1)), ")"))
   
   assign("invited.continuous", all)
   
@@ -162,10 +162,10 @@ for (cohort in cohorts)
     
   }
   colnames(all) <- c("variable",
-                     paste0("Non-participants \n n = (", length(subset(temp$EncryptedID, temp$invited_not_coached_EVER==1)), ")"),
-                     paste0("Participants \n n = (", length(subset(temp$EncryptedID, temp$invited_and_coached==1)), ")"), 
-                     paste0("Non-completers \n n = (", length(subset(temp$EncryptedID, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
-                     paste0("Completers \n n = (", length(subset(temp$EncryptedID, temp$inv.completed==1)), ")"))
+                     paste0("Non-participants \n n = (", length(subset(temp$st.id, temp$invited_not_coached_EVER==1)), ")"),
+                     paste0("Participants \n n = (", length(subset(temp$st.id, temp$invited_and_coached==1)), ")"), 
+                     paste0("Non-completers \n n = (", length(subset(temp$st.id, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
+                     paste0("Completers \n n = (", length(subset(temp$st.id, temp$inv.completed==1)), ")"))
   
   assign("freshman.binary", all)
   
@@ -205,10 +205,10 @@ for (cohort in cohorts)
     
   }
   colnames(all) <- c("variable",
-                     paste0("Non-participants \n n = (", length(subset(temp$EncryptedID, temp$invited_not_coached_EVER==1)), ")"),
-                     paste0("Participants \n n = (", length(subset(temp$EncryptedID, temp$invited_and_coached==1)), ")"), 
-                     paste0("Non-completers \n n = (", length(subset(temp$EncryptedID, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
-                     paste0("Completers \n n = (", length(subset(temp$EncryptedID, temp$inv.completed==1)), ")"))
+                     paste0("Non-participants \n n = (", length(subset(temp$st.id, temp$invited_not_coached_EVER==1)), ")"),
+                     paste0("Participants \n n = (", length(subset(temp$st.id, temp$invited_and_coached==1)), ")"), 
+                     paste0("Non-completers \n n = (", length(subset(temp$st.id, temp$inv.completed == 0 & temp$invited_and_coached==1)), ")"),
+                     paste0("Completers \n n = (", length(subset(temp$st.id, temp$inv.completed==1)), ")"))
   
   assign("freshman.continuous", all)
   
