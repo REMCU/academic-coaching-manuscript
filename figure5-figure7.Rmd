@@ -63,13 +63,14 @@ p1 <- ggplot(coached, aes(x = coaching.sessions, y = invited.term.gpa)) +
   geom_smooth(method = "lm", se = FALSE, aes(linetype="linear", colour="linear")) +
   geom_smooth(se = FALSE,  aes(linetype="loess", colour="loess"))+
   
-  ylab("Invited Term GPA") +
+  ylab("Coaching Semester GPA") +
   xlab("Number of Coaching Sessions")+
- scale_colour_manual(name="legend", 
+ scale_colour_manual(name="Legend", 
                       values=c("loess"="red","linear"="blue"),guide = myguide) +
-  scale_linetype_manual(name="legend",
+  scale_linetype_manual(name="Legend",
                         values=c("loess"="dashed","linear"="solid"),guide = myguide)+
-  theme_bw()
+  theme_bw()+
+  scale_x_continuous(breaks=1:10, labels=c("1", "2", "3", "4", "5","6","7","8","9","10"))
 
 p1
 ```
@@ -116,11 +117,12 @@ p1 <- ggplot(coached, aes(x = coaching.sessions, y = next.semester.credits)) +
   geom_smooth(se = FALSE,  aes(linetype="loess", colour="loess"))+
   ylab("Next Semester Credits") +
   xlab("Number of Coaching Sessions") +
-  scale_colour_manual(name="legend", 
+  scale_colour_manual(name="Legend", 
                       values=c("loess"="red","linear"="blue"),guide = myguide) +
-  scale_linetype_manual(name="legend",
+  scale_linetype_manual(name="Legend",
                         values=c("loess"="dashed","linear"="solid"),guide = myguide)+
-  theme_bw()
+  theme_bw()+
+  scale_x_continuous(breaks=1:10, labels=c("1", "2", "3", "4", "5","6","7","8","9","10"))
 
 p1
 
@@ -159,13 +161,14 @@ myguide <- guide_legend(keywidth = unit(1, "cm"))
 p1 <- ggplot(coached, aes(x = coaching.sessions, y = enrolled.next.semester)) +   geom_point(alpha = .3) +
   geom_smooth(method = "lm", se = FALSE, aes(linetype="linear", colour="linear")) +
   geom_smooth(se = FALSE,  aes(linetype="loess", colour="loess"))+
-  ylab("Next Semester Credits") +
+  ylab("Next Semester Enrollment") +
   xlab("Number of Coaching Sessions")+
- scale_colour_manual(name="legend", 
+ scale_colour_manual(name="Legend", 
                       values=c("loess"="red","linear"="blue"),guide = myguide) +
-  scale_linetype_manual(name="legend",
+  scale_linetype_manual(name="Legend",
                         values=c("loess"="dashed","linear"="solid"),guide = myguide)+
-  theme_bw()
+  theme_bw()+
+  scale_x_continuous(breaks=1:10, labels=c("1", "2", "3", "4", "5","6","7","8","9","10"))
 
 p1
 
