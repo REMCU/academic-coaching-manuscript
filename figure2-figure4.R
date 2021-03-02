@@ -26,6 +26,7 @@ table_for_bars <- function(sample_name, partdf, completedf, outcome)
   participated$Sample <- sample_name
   participated$outvar <- NULL
   participated$cem <- NULL
+  participated$n <- paste0("n=",as.numeric(as.character(partdf$cem[4])))
   
   #coached 
   
@@ -34,12 +35,15 @@ table_for_bars <- function(sample_name, partdf, completedf, outcome)
   completed$se <- str_extract(completed$se, "[0-9][\\.][0-9]{1,2}")
   completed$se <- as.numeric(completed$se)
   completed$mean_diff <- as.numeric(str_extract(completed$cem, "[-]?[0-9][\\.][0-9]{1,2}\\s*"))
+
   
+ 
   
   completed$treatment <- "Completers"
   completed$Sample <- sample_name
   completed$outvar <- NULL
   completed$cem <- NULL
+  completed$n <- paste0("n=",as.numeric(as.character(completedf$cem[4])))
   
   final <- rbind(participated, completed)
   final$outcome <- outcome
@@ -59,7 +63,6 @@ low.gpa <- table_for_bars("GPA < 1.0", results.low.coached, results.low.complete
 enrolled <- rbind(all_students, high.gpa, low.gpa)
 enrolled$Sample<- factor(enrolled$Sample, levels=c("Invited Students","GPA >= 1.0","GPA < 1.0"))
 enrolled$treatment <- factor(enrolled$treatment, levels=c("Participants", "Completers"))
-enrolled$n<-c("n=271","n=144","n=210","n=109","n=26","n=10")
 
 # Default bar plot
 p_enrolled<- ggplot(enrolled, aes(x=Sample, y=mean_diff, fill=treatment)) + 
@@ -71,7 +74,7 @@ p_enrolled<- ggplot(enrolled, aes(x=Sample, y=mean_diff, fill=treatment)) +
 # Finished bar plot
 p_enrolled <- p_enrolled+labs( y = "Difference in Next Semester Enrollment")+
   theme_classic() +
-  scale_fill_manual(values=c('#999999','#E69F00'))+
+  scale_fill_manual(values=c('#FFFFFF', '#999999'))+
   theme(legend.title=element_blank())+
   geom_text(data = enrolled,aes(y=-.02,label = n),
             size = 3.5,position = position_dodge(width = 0.9))
@@ -89,7 +92,7 @@ low.gpa <- table_for_bars("GPA < 1.0", results.low.coached, results.low.complete
 enrolled <- rbind(all_students, high.gpa, low.gpa)
 enrolled$Sample<- factor(enrolled$Sample, levels=c("Invited Students","GPA >= 1.0","GPA < 1.0"))
 enrolled$treatment <- factor(enrolled$treatment, levels=c("Participants", "Completers"))
-enrolled$n<-c("n=271","n=144","n=210","n=109","n=26","n=10")
+
 
 
 # Default bar plot
@@ -102,7 +105,7 @@ p_gpa<- ggplot(enrolled, aes(x=Sample, y=mean_diff, fill=treatment)) +
 # Finished bar plot
 p_gpa<- p_gpa+labs( y = "Difference in Coaching Semester GPA")+
   theme_classic() +
-  scale_fill_manual(values=c('#999999','#E69F00'))+
+  scale_fill_manual(values=c('#FFFFFF', '#999999'))+
   theme(legend.title=element_blank())+
   geom_text(data = enrolled,aes(y=-.05,label = n),
             size = 3.5,position = position_dodge(width = 0.9))
@@ -119,7 +122,7 @@ low.gpa <- table_for_bars("GPA < 1.0", results.low.coached, results.low.complete
 enrolled <- rbind(all_students, high.gpa, low.gpa)
 enrolled$Sample<- factor(enrolled$Sample, levels=c("Invited Students","GPA >= 1.0","GPA < 1.0"))
 enrolled$treatment <- factor(enrolled$treatment, levels=c("Participants", "Completers"))
-enrolled$n<-c("n=271","n=144","n=210","n=109","n=26","n=10")
+#enrolled$n<-c("n=750","n=566","n=587","n=417","n=55","n=37")
 
 # Default bar plot
 p_credit<- ggplot(enrolled, aes(x=Sample, y=mean_diff, fill=treatment)) + 
@@ -131,7 +134,7 @@ p_credit<- ggplot(enrolled, aes(x=Sample, y=mean_diff, fill=treatment)) +
 # Finished bar plot
 p_credit <- p_credit+labs( y = "Difference in Next Semester Completed Credits")+
   theme_classic() +
-  scale_fill_manual(values=c('#999999','#E69F00'))+
+  scale_fill_manual(values=c('#FFFFFF', '#999999'))+
   theme(legend.title=element_blank())+
   geom_text(data = enrolled,aes(y=-.2,label = n),
             size = 3.5,position = position_dodge(width = 0.9))

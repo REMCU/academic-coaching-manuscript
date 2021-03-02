@@ -1,0 +1,35 @@
+---
+title: "Figure 2 - Figure 4"
+author: "Amy Burkhardt"
+date: "3/1/2021"
+output:
+  html_document:
+    css: table-style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(MatchIt)
+library(cem)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(kableExtra)
+source("figure2-figure4.R")
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+p_enrolled
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+p_gpa
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+p_credit
+```
+
